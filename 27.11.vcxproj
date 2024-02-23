@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Clock.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Digits.h" />
+    <ClInclude Include="InnerSize.h" />
+    <ClInclude Include="lib.h" />
+    <ClInclude Include="Time.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
