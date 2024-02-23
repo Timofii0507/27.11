@@ -8,11 +8,11 @@ void gotoxy(int x, int y) {
 }
 
 Clock::Clock(){
-	auto now = std::chrono::system_clock::now();
-	std::time_t end_time = std::chrono::system_clock::to_time_t(now);
-	unsigned short hours = std::localtime(&end_time)->tm_hour;
-	unsigned short minutes = std::localtime(&end_time)->tm_min;
-	unsigned short seconds = std::localtime(&end_time)->tm_sec;
+	auto now = chrono::system_clock::now();
+	time_t end_time = chrono::system_clock::to_time_t(now);
+	unsigned short hours = localtime(&end_time)->tm_hour;
+	unsigned short minutes = localtime(&end_time)->tm_min;
+	unsigned short seconds = localtime(&end_time)->tm_sec;
 
 	is_hours_changed= false;
 	is_minutes_changed = false;
@@ -27,7 +27,6 @@ Clock::Clock(Config config, Time time)
 	this->time = &time;
 }
 
-//Getters
 Config Clock::get_config() {
 	return this->config;
 }
@@ -35,7 +34,6 @@ Time Clock::get_time() {
 	return *time;
 }
 
-//Setters
 void Clock::set_config(Config config) {
 	this->config = config;
 }
@@ -44,15 +42,14 @@ void Clock::set_time(Time time) {
 }
 
 
-//Methods 
 void Clock::update() 
 {
-	auto now = std::chrono::system_clock::now();
-	std::time_t end_time = std::chrono::system_clock::to_time_t(now);
+	auto now = chrono::system_clock::now();
+	time_t end_time = chrono::system_clock::to_time_t(now);
 
-	unsigned short h = std::localtime(&end_time)->tm_hour;
-	unsigned short m = std::localtime(&end_time)->tm_min;
-	unsigned short s = std::localtime(&end_time)->tm_sec;
+	unsigned short h = localtime(&end_time)->tm_hour;
+	unsigned short m = localtime(&end_time)->tm_min;
+	unsigned short s = localtime(&end_time)->tm_sec;
 	delete this->time;
 	this->time = new Time(h,m,s);
 }
@@ -151,11 +148,11 @@ inline int Clock::show_digits(short number, int x, int y) {
 	output_digit(number, x, y);
 	return x + 12;
 }
-void setcursor(bool visible, DWORD size) // set bool visible = 0 - invisible, bool visible = 1 - visible
+void setcursor(bool visible, DWORD size) 
 {
 	if (size == 0)
 	{
-		size = 20;	// default cursor size Changing to numbers from 1 to 20, decreases cursor width
+		size = 20;	
 	}
 	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO lpCursor;
@@ -165,7 +162,6 @@ void setcursor(bool visible, DWORD size) // set bool visible = 0 - invisible, bo
 }
 
 void Clock::show() {
-	//show time
 	int x, y;
 	int counter = 0;
 	bool flag = true;

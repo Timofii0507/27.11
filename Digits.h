@@ -119,7 +119,7 @@ public:
 		y_cur += 1;
 		move_coord(x_cur, y_cur);
 		y_cur += 1;
-		std::cout << "  d8888    " << endl;
+		cout << "  d8888    " << endl;
 		move_coord(x_cur, y_cur);
 		y_cur += 1;
 		cout << "    888    " << endl;

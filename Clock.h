@@ -22,15 +22,12 @@ public:
 	Clock();
 	Clock(Config config, Time time);
 
-	//Getters
 	Config get_config();
 	Time get_time();
 
-	//Setters
 	void set_config(Config config);
 	void set_time(Time time);
 
-	//Methods
 	void update();
 	void show();
 
